@@ -16,4 +16,4 @@ sunset:
 
 solid:
 
-![solid](https://i.ibb.co/3FfWDBG/image.png)
+![solidtheme](https://i.ibb.co/3FfWDBG/image.png)
