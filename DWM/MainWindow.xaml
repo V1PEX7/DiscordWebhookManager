@@ -1,0 +1,194 @@
+﻿<Window x:Class="DWM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DWM"
+        mc:Ignorable="d"
+        Title="Discord Webhook Manager" Height="450" Width="800" ResizeMode="CanMinimize" Closed="Window_Closed" Icon="webhook_logo.png">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop x:Name="gbc1" Color="#FF04619F" Offset="0"/>
+                <GradientStop x:Name="gbc2" Color="Black" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="75">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop x:Name="gsc1" Color="#FF232220" Offset="0"/>
+                    <GradientStop x:Name="gsc2" Color="#FF232220" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Button x:Name="AddcCatBtn" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" Width="70" Height="70" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="AddcCatBtn_Click" Background="{x:Null}">
+                <Image Source="addbtn.png" Height="70" Width="70"/>
+            </Button>
+            <Button x:Name="SendCatBtn" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Height="70" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="SendCatBtn_Click" Background="{x:Null}">
+                <Image Height="45" Width="45" Source="sendbtn.png"/>
+            </Button>
+            <Button x:Name="DeleteCatBtn" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Height="70" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="DeleteCatBtn_Click" Background="{x:Null}" Margin="0,140,0,0">
+                <Image Height="70" Width="70" Source="deletebtn.png"/>
+            </Button>
+            <Button x:Name="SetCatBtn" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Height="70" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="SetCatBtn_Click" Background="{x:Null}" Margin="0,210,0,0">
+                <Image Height="50" Width="50" Source="setbtn.png" Margin="4,0,0,0"/>
+            </Button>
+        </Grid>
+        <Grid x:Name="SendGrid" HorizontalAlignment="Left" Height="421" Margin="75,0,0,0" VerticalAlignment="Top" Width="717" Grid.ColumnSpan="2">
+            <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="92,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" Foreground="White" BorderBrush="#FF747474">
+                <TextBox.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g9c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g9c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Name" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="77" Foreground="#FFCDCDCD" FontSize="14"/>
+            <Label Content="Message" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="77" Foreground="#FFCDCDCD" FontSize="14"/>
+            <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="335" Margin="92,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" Foreground="White" BorderBrush="#FF747474">
+                <TextBox.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g8c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g8c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+            <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="169" Margin="390,38,0,0" VerticalAlignment="Top" Width="317" BorderBrush="#FF747474" SelectionChanged="listBox1_SelectionChanged" Foreground="White" MouseDown="listBox1_MouseDown">
+                <ListBox.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g4c1v2" Color="#FF2B5876" Offset="0"/>
+                        <GradientStop x:Name="g4c2v2" Color="#FF4E4376" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+            </ListBox>
+            <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="169" Margin="390,237,0,0" VerticalAlignment="Top" Width="317" BorderBrush="#FF747474" Foreground="White" MouseDown="listBox2_MouseDown">
+                <ListBox.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g3c1v2" Color="#FF2B5876" Offset="0"/>
+                        <GradientStop x:Name="g3c2v2" Color="#FF4E4376" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+            </ListBox>
+            <Label Content="Webhooks" HorizontalAlignment="Left" Margin="390,6,0,0" VerticalAlignment="Top" Width="77" Foreground="#FFCDCDCD" FontSize="14"/>
+            <Label x:Name="avLabel" Content="Avatars" HorizontalAlignment="Left" Margin="390,208,0,0" VerticalAlignment="Top" Width="77" Foreground="#FFCDCDCD" FontSize="14"/>
+            <Button x:Name="button1" Content="Send" HorizontalAlignment="Left" Margin="310,378,0,0" VerticalAlignment="Top" Width="75" Height="28" Foreground="White" BorderBrush="#FF747474" Click="button1_Click">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g1c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g1c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="DelChBtn" Content="Delete" HorizontalAlignment="Left" Margin="632,378,0,0" VerticalAlignment="Top" Width="75" Height="28" Foreground="White" BorderBrush="#FF747474" Click="DelChBtn_Click" Visibility="Hidden">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g2c1v2" Color="#FF2B5876" Offset="0"/>
+                        <GradientStop x:Name="g2c2v2" Color="#FF4E4376" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="DelWHBtn" Content="Delete" HorizontalAlignment="Left" Margin="632,179,0,0" VerticalAlignment="Top" Width="75" Height="28" Foreground="White" BorderBrush="#FF747474" Click="DelWHBtn_Click" Visibility="Hidden">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g1c1v2" Color="#FF2B5876" Offset="0"/>
+                        <GradientStop x:Name="g1c2v2" Color="#FF4E4376" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <Grid x:Name="AddGrid" HorizontalAlignment="Left" Height="421" Margin="75,0,0,0" VerticalAlignment="Top" Width="717" Visibility="Hidden" Grid.ColumnSpan="2">
+            <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="59,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Foreground="White" BorderBrush="#FF747474">
+                <TextBox.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g2c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g2c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Add Webhook" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FFCDCDCD"/>
+            <Label Content="Name" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FFCDCDCD"/>
+            <Label Content="URL" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FFCDCDCD"/>
+            <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="150" Margin="59,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Foreground="White" BorderBrush="#FF747474">
+                <TextBox.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g3c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g3c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Add Avatar" HorizontalAlignment="Left" Margin="278,0,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FFCDCDCD"/>
+            <TextBox x:Name="ChNameBox" HorizontalAlignment="Left" Height="23" Margin="389,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Foreground="White" BorderBrush="#FF747474">
+                <TextBox.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g4c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g4c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Name" HorizontalAlignment="Left" Margin="278,25,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FFCDCDCD"/>
+            <Label Content="Avatar URL" HorizontalAlignment="Left" Margin="278,54,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FFCDCDCD"/>
+            <TextBox x:Name="ChIDBox" HorizontalAlignment="Left" Height="23" Margin="389,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Foreground="White" BorderBrush="#FF747474">
+                <TextBox.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g5c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g5c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+            <Button x:Name="Button" Content="Add" HorizontalAlignment="Left" Margin="173,215,0,0" VerticalAlignment="Top" Width="75" Height="28" Foreground="White" BorderBrush="#FF747474" Click="Button_Click">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g6c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g6c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="AddChBtn" Content="Add" HorizontalAlignment="Left" Margin="503,88,0,0" VerticalAlignment="Top" Width="75" Height="28" Foreground="White" BorderBrush="#FF747474" Click="AddChBtn_Click">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g7c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g7c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+        </Grid>
+        <Grid x:Name="SetGrid" HorizontalAlignment="Left" Margin="75,0,0,0" Width="719" Visibility="Hidden" Grid.ColumnSpan="2">
+            <CheckBox x:Name="AvSelSet" Content="Avatar Selection" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="23" Width="123" Foreground="#FFCDCDCD" FontSize="14" Checked="AvSelSet_Checked" Unchecked="AvSelSet_Unchecked" IsChecked="True"/>
+            <Label Content="More settings coming soon!" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFCDCDCD"/>
+            <ListBox x:Name="listBox3" HorizontalAlignment="Left" Height="342" Margin="374,33,0,0" VerticalAlignment="Top" Width="335" BorderBrush="#FF747474" Foreground="White" MouseDown="listBox2_MouseDown" SelectedIndex="0">
+                <ListBox.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1"
+                                         >
+                        <GradientStop x:Name="g5c1v2" Color="#FF2B5876" Offset="0"/>
+                        <GradientStop x:Name="g5c2v2" Color="#FF4E4376" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+            </ListBox>
+            <Label Content="Themes" HorizontalAlignment="Left" Margin="374,4,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FFCDCDCD"/>
+            <Button x:Name="ThemeButton" Content="Apply" HorizontalAlignment="Left" Margin="634,383,0,0" VerticalAlignment="Top" Width="75" Height="28" Foreground="White" BorderBrush="#FF747474" Click="ThemeButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g10c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g10c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ThemeOpenBtn" Content="Open themes folder" HorizontalAlignment="Left" Margin="589,4,0,0" VerticalAlignment="Top" Width="120" Height="24" Foreground="White" BorderBrush="#FF747474" Click="ThemeOpenBtn_Click">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g11c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g11c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="RefreshTheme" Content="Refresh" HorizontalAlignment="Left" Margin="509,4,0,0" VerticalAlignment="Top" Width="75" Height="24" Foreground="White" BorderBrush="#FF747474" Click="RefreshTheme_Click">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop x:Name="g12c1" Color="#FF614385" Offset="0"/>
+                        <GradientStop x:Name="g12c2" Color="#FF516395" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
