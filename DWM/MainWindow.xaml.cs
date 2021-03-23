@@ -365,19 +365,11 @@ namespace DWM
         {
             if ((ChIDBox.Text != "") && (ChNameBox.Text != ""))
             {
-                string tempav = ChIDBox.Text;
-                if (tempav.StartsWith("https://") || tempav.StartsWith("http://"))
-                {
                     listBox2.Items.Add(ChNameBox.Text);
                     avatars.Add(ChIDBox.Text);
                     avatarnames.Add(ChNameBox.Text);
                     ChIDBox.Text = "";
                     ChNameBox.Text = "";
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Avatar URL entered!");
-                }
             }
             else
             {
