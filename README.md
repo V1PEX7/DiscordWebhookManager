@@ -7,7 +7,7 @@ To add themes you can drag them into a themes folder (there is a button in the s
 ![Delete](https://i.ibb.co/rHmHd8M/image.png)
 ![Settings](https://i.ibb.co/GMTYQ4f/image.png)
 
-##Themes:
+## Themes:
 
 sunset:
 
