@@ -1,7 +1,7 @@
 # DiscordWebhookManager
 A program for storing and using discord webhooks. Supports changing themes and storing avatars for use by webhooks.<br/>
 To add themes you can drag them into a themes folder (there is a button in the settings to open it)<br/>
-You can create your own themes: create a copy of the theme, rename it, open it as a text file and change the data.<br/>
+You can create your own themes: create a copy of the theme, rename it, open it as a text file and change the data.<br/> <br/>
 Send menu:
 
 ![Send](https://i.ibb.co/L1DYQMX/image.png)
