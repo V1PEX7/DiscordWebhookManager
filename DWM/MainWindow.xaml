@@ -95,7 +95,7 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Grid x:Name="AddGrid" HorizontalAlignment="Left" Height="421" Margin="75,0,0,0" VerticalAlignment="Top" Width="717" Visibility="Hidden" Grid.ColumnSpan="2">
+        <Grid x:Name="AddGrid" HorizontalAlignment="Left" Height="421" Margin="75,0,0,0" VerticalAlignment="Top" Width="717" Grid.ColumnSpan="2" Visibility="Hidden">
             <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="59,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Foreground="White" BorderBrush="#FF747474">
                 <TextBox.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -126,7 +126,7 @@
             </TextBox>
             <Label Content="Name" HorizontalAlignment="Left" Margin="278,25,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FFCDCDCD"/>
             <Label Content="Avatar URL" HorizontalAlignment="Left" Margin="278,54,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FFCDCDCD"/>
-            <TextBox x:Name="ChIDBox" HorizontalAlignment="Left" Height="23" Margin="389,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Foreground="White" BorderBrush="#FF747474">
+            <TextBox x:Name="ChIDBox" HorizontalAlignment="Left" Height="150" Margin="389,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Foreground="White" BorderBrush="#FF747474">
                 <TextBox.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop x:Name="g5c1" Color="#FF614385" Offset="0"/>
@@ -142,7 +142,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="AddChBtn" Content="Add" HorizontalAlignment="Left" Margin="503,88,0,0" VerticalAlignment="Top" Width="75" Height="28" Foreground="White" BorderBrush="#FF747474" Click="AddChBtn_Click">
+            <Button x:Name="AddChBtn" Content="Add" HorizontalAlignment="Left" Margin="503,215,0,0" VerticalAlignment="Top" Width="75" Height="28" Foreground="White" BorderBrush="#FF747474" Click="AddChBtn_Click">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop x:Name="g7c1" Color="#FF614385" Offset="0"/>

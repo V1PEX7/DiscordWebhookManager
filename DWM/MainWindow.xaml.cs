@@ -65,7 +65,9 @@ namespace DWM
         public MainWindow()
         {
             InitializeComponent();
-            if ((File.Exists(urlpath)) && (File.Exists(namepath)) && (File.Exists(avatarspath)) && (File.Exists(avatarnamespath)) && (File.Exists(setpath)) && (Directory.Exists(foldpath)) && (File.Exists(@"./Themes/default.dwmtheme")))
+
+            DefaultThemes d = new DefaultThemes();
+            if ((File.Exists(urlpath)) && (File.Exists(namepath)) && (File.Exists(avatarspath)) && (File.Exists(avatarnamespath)) && (File.Exists(setpath)) && (Directory.Exists(foldpath)) && (File.Exists(@"./Themes/default.dwmtheme")) && (File.Exists(@"./Themes/sunset.dwmtheme")) && (File.Exists(@"./Themes/solid.dwmtheme")))
             {
                 Url.AddRange(File.ReadAllLines(urlpath));
                 names1.AddRange(File.ReadAllLines(namepath));
@@ -151,14 +153,16 @@ namespace DWM
                 {
                     DirectoryInfo di = Directory.CreateDirectory(foldpath);
                 }
-                if ((!File.Exists(@"./Themes/default.dwmtheme")))
+                foreach (KeyValuePair<string, string> i in d.themes)
                 {
-                    FileStream file5 = File.Create(@"./Themes/default.dwmtheme");
-                    byte[] f4 = Encoding.UTF8.GetBytes("[Gradient 1 Color 1]\r\n#FF516395\r\n[Gradient 1 Color 2]\r\n#FF2B5876\r\n[Gradient 2 Color 1]\r\n#FF2B5876\r\n[Gradient 2 Color 2]\r\n#FF4E4376\r\n[Background Gradient Color 1]\r\n#FF04619F\r\n[Background Gradient Color 2]\r\n#000000\r\n[Sidebar Gradient Color 1]\r\n#FF232220\r\n[Sidebar Gradient Color 2]\r\n#FF232220\r\n");
-                    file5.Write(f4, 0, f4.Length);
-                    file5.Close();
+                    if ((!File.Exists($"./Themes/{i.Key}.dwmtheme")))
+                    {
+                        FileStream file5 = File.Create($"./Themes/{i.Key}.dwmtheme");
+                        byte[] f4 = Encoding.UTF8.GetBytes(i.Value);
+                        file5.Write(f4, 0, f4.Length);
+                        file5.Close();
+                    }
                 }
-
             }
 
             for (int i = 0; i < Math.Min(Url.Count, names1.Count); i++)                 //Listbox fill
