@@ -74,7 +74,7 @@ namespace DWM
                 avatars.AddRange(File.ReadAllLines(avatarspath));
                 avatarnames.AddRange(File.ReadAllLines(avatarnamespath));
                 string[] tempset = File.ReadAllLines(setpath);
-                if (tempset[0] == "False" || tempset[0] == "False" || tempset[0] == "0")
+                if (tempset[0] == "false" || tempset[0] == "False" || tempset[0] == "0")
                 {
                     avsel = false;
                 }
